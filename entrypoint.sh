@@ -8,7 +8,7 @@ echo "__________________________________________________________________"
 
 
 echo "Preparing to print the app directory inside GitHub workspace"
-ls -l $GITHUB_WORKSPACE/app
+ls -l /app
 echo "__________________________________________________________________"
 
 echo "Preparing to print github workspace contents..."
