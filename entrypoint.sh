@@ -31,8 +31,37 @@
 
 ls -al
 pwd
+#!/bin/sh
 
-GRADING_CRITERIA="${6:-criteria.json}"
+# Define the base directory where GitHub Actions checks out the repository
+# By default, this is /github/workspace
+# If actions/checkout does not specify a 'path', student files will be here.
+STUDENT_REPO_ROOT="$GITHUB_WORKSPACE"
+
+# Define the target submission directory
+SUBMISSION_DIR="$GITHUB_WORKSPACE/submission"
+
+# Create the submission directory if it doesn't exist
+mkdir -p "$SUBMISSION_DIR"
+
+# Move all contents from the student's repository root into the submission directory
+# This assumes the autograder's files are NOT in the root of the student's repo
+# but rather in a sub-directory, or the action runs in a separate context.
+# If your autograder is in the same repository as the student's submission,
+# you might need to be more selective about what you move to avoid moving
+# your autograder files into the submission directory.
+mv "$STUDENT_REPO_ROOT"/* "$SUBMISSION_DIR"/
+mv "$STUDENT_REPO_ROOT"/.* "$SUBMISSION_DIR"/ # To move hidden files like .gitignore, .env etc.
+
+# Now, your STUDENT_REPO_PATH variable will correctly point to the files
+# assuming it's already set like this in your entrypoint.sh:
+# STUDENT_REPO_PATH="$GITHUB_WORKSPACE/submission"
+
+echo "Student submission moved to $SUBMISSION_DIR"
+
+# ... rest of your entrypoint.sh script ...
+# For example, running your autograder
+# python3 "$STUDENT_REPO_PATH/run_tests.py"
 
 # Specify the path to the student's submission folder (we assume files are in the "submission" folder)
 STUDENT_REPO_PATH="$GITHUB_WORKSPACE/submission"
@@ -67,7 +96,7 @@ echo "$STUDENT_REPO_PATH"
 
 # Run the Python autograder script with the provided inputs
 # This command will invoke autograder.py and pass the weights and grading criteria (Adjust to Node.js)
-python /app/autograder.py --token $5
+python /app/autograder.py 
 
 #Stops PostgreSQL container
 echo "Stopping PostgreSQL container..."

@@ -1,6 +1,9 @@
+import os
 
-print("I am the autograder script. Behold my power!")
-with open("/app/node_test_output.txt", "r") as file:
-    content = file.read()
-    print(content)
-print("I am the autograder script. I have finished running!")
+submission_dir = '/submission'
+
+if os.path.exists(submission_dir) and os.path.isdir(submission_dir):
+    for filename in os.listdir(submission_dir):
+        print(filename)
+else:
+    print(f"Directory '{submission_dir}' does not exist.")
