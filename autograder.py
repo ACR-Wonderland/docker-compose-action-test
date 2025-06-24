@@ -1,11 +1,12 @@
 import os
-print("I am the autograder script. Behold my greatness!")
-submission_dir = '/submission'
 
-if os.path.exists(submission_dir) and os.path.isdir(submission_dir):
-    for filename in os.listdir(submission_dir):
-        print(filename)
+workspace = os.environ.get("GITHUB_WORKSPACE")
+if not workspace:
+    print("GITHUB_WORKSPACE environment variable is not set.")
 else:
-    print(f"Directory '{submission_dir}' does not exist.")
-    
-print("That's all, folks!")
+    submission_dir = os.path.join(workspace, "submission")
+    if not os.path.isdir(submission_dir):
+        print(f"Directory '{submission_dir}' does not exist.")
+    else:
+        for filename in os.listdir(submission_dir):
+            print(filename)
