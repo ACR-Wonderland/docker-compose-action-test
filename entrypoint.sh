@@ -3,7 +3,8 @@
 
 STUDENT_REPO_ROOT="$GITHUB_WORKSPACE"
 
-
+echo "Preparing to print github workspace contents..."
+ls -l "$STUDENT_REPO_ROOT"
 
 
 
