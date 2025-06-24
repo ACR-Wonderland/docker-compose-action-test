@@ -29,8 +29,8 @@
 
 # --- Database Setup (end) --- #
 
-echo "$GITHUB_WORKSPACE"
 ls -al
+pwd
 
 GRADING_CRITERIA="${6:-criteria.json}"
 
