@@ -8,10 +8,10 @@ ENV PYTHONUNBUFFERED=1
 WORKDIR /app
 
 # 4. Copy the requirements file to install dependencies
-COPY requirements.txt /app/
+#COPY requirements.txt /app/
 
 # 5. Install dependencies (this includes any packages needed for autograding)
-RUN pip install -r requirements.txt
+#RUN pip install -r requirements.txt
 
 # 6. Copy the rest of the code into the working directory inside the container
 COPY . /app/
