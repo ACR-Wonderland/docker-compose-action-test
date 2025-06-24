@@ -13,7 +13,7 @@ WORKDIR /app
 # 5. Install dependencies (this includes any packages needed for autograding)
 ##RUN pip install -r requirements.txt
 
-# 6. Copy the rest of the code into the working directory inside the container
+#### 6. Copy the rest of the code into the working directory inside the container
 COPY . /app/
 
 CMD ["/bin/bash", "-c", "pwd; ls -al"]
