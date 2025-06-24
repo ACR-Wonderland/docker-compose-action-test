@@ -37,6 +37,8 @@ GRADING_CRITERIA="${6:-criteria.json}"
 # Specify the path to the student's submission folder (we assume files are in the "submission" folder)
 STUDENT_REPO_PATH="$GITHUB_WORKSPACE/submission"
 
+echo "$STUDENT_REPO_PATH"
+
 # Print some of the important paths for debugging
 #echo "Student repository path: $STUDENT_REPO_PATH"
 #echo "Grading criteria: $GRADING_CRITERIA"
