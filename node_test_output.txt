@@ -1,0 +1,22 @@
+Test Suite: Node Application Tests
+==================================
+
+Test Summary:
+-------------
+Total Tests: 5
+Passed:      4
+Failed:      1
+Skipped:     0
+
+Test Results:
+-------------
+✓ should connect to the database
+✓ should return 200 on GET /api/status
+✓ should create a new user
+✗ should not allow duplicate user registration
+    Error: Expected status 409, got 200
+✓ should delete a user
+
+Test Run Time: 3.42s
+
+End of Report
