@@ -2,9 +2,13 @@
 
 
 STUDENT_REPO_ROOT="$GITHUB_WORKSPACE"
+echo "Preparing to print the entire GitHub workspace"
+ls -l 
+echo "__________________________________________________________________"
 
-echo "Preparing to print entire GitHub workspace contents..."
-ls -l /app
+
+echo "Preparing to print the app directory inside GitHub workspace"
+ls -l $GITHUB_WORKSPACE/app
 echo "__________________________________________________________________"
 
 echo "Preparing to print github workspace contents..."
