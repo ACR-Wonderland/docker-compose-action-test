@@ -78,5 +78,3 @@ echo "✅ Autograding completed successfully!"
 
 # Provide a message indicating completion
 echo "🎉 Final results generated and sent to GitHub Classroom!"
-
-exec "$@"
